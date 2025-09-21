@@ -1,0 +1,68 @@
+{% load static %}
+<footer>
+    <div class="container-fluid">
+        <div class="card footer-card mx-auto">
+          <div class="card-body">
+            <div class="row row-cols-1 row-cols-md-4 g-3">
+                <div class="col">
+                    <div class="card-body">
+                        <a href="/">
+                          <img class="logo-green-footer" src="{% static 'images/aivc_logo_green.png' %}" alt="AI Venture Catalyst">
+                        </a>
+                        <p class="footer-text-1">Transforming AI innovations into high-value ventures through strategic carve-outs and operating partnership.</p>
+                        <div class="social-media-footer">
+                            <a href="#" target="_blank"><img src="{% static 'icons/linkedin.svg' %}"> </a>
+                            <a href="#" target="_blank"><img src="{% static 'icons/twitter.svg' %}"> </a>
+                            <a href="#" target="_blank"><img src="{% static 'icons/youtube.svg' %}"> </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card-body">
+                        <h3 class="footer-heading">Company</h3>
+                        <div class="footer-links-div">
+                            <a href="{% url 'aivc_app:about' %}" class="footer-links">About Us</a>
+                            <a href="#" class="footer-links">Our Team</a>
+                            <a href="#" class="footer-links">Case Studies</a>
+                            <a href="#" class="footer-links">Contact</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card-body">
+                        <h3 class="footer-heading">Services</h3>
+                        <div class="footer-links-div">
+                            <a href="#" class="footer-links">AI Value Assessment</a>
+                            <a href="#" class="footer-links">Strategic Carve-Out</a>
+                            <a href="#" class="footer-links">Growth Capital</a>
+                            <a href="#" class="footer-links">Fractional Executives</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card-body">
+                        <h3 class="footer-heading">More</h3>
+                        <div class="footer-links-div">
+                            <a href="#" class="footer-links">Blogs</a>
+                            <a href="#" class="footer-links">Cookie Policy</a>
+                            <a href="#" class="footer-links">Privacy Policy</a>
+                            <a href="#" class="footer-links">Terms of Service</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-card w-100">
+            </div>
+
+              <div class="row row-cols-1 row-cols-md-2 g-5">
+                  <div class="col"><p class="footer-ai-venture">© 2025 <a href="/">AI Venture Catalyst</a> . All rights reserved.</p></div>
+                  <div class="col "><p class="ryzen-footer text-end">Powered by <a href="#" target="_blank">Ryzenforge Enterprises LLP</a> </p></div>
+              </div>
+
+
+
+          </div>
+        </div>
+    </div>
+</footer>

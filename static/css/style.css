@@ -1,0 +1,3210 @@
+* /* Hide scrollbar for Chrome, Safari and Opera */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+. {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Manrope", sans-serif;
+
+}
+
+body{
+    background: #FFF;
+}
+
+
+.navbar {
+    background-color: transparent;
+    transition: transform 0.3s ease-in-out;
+}
+.navbar-hidden {
+    transform: translateY(-100%);
+}
+
+
+.navbar-brand {
+    position: relative; /* Essential for absolute positioning of the logos */
+    height: 3.125rem; /* Set a specific height to prevent layout shifts */
+}
+
+.navbar-brand .logo-original,
+.navbar-brand .logo-green {
+    height: 100%;
+    width: auto;
+}
+
+.logo-original {
+    opacity: 1;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.logo-green {
+    opacity: 0; /* Starts hidden */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Base styles for the toggle icon (default white) */
+.navbar-toggler-icon {
+  filter: brightness(0) invert(1); /* Makes the icon white */
+}
+
+/* --- Mobile-specific styles below this line (screens < 992px) --- */
+@media (max-width: 991.98px) {
+  /*
+   * On mobile, when the body has the 'scrolled' class, apply these styles.
+   * This handles the scroll-based background and icon color change.
+   */
+  .scrolled .navbar {
+    background-color: #ffffff;
+  }
+
+  .scrolled .navbar-toggler-icon {
+    filter: none; /* Reverts to the default black color */
+  }
+}
+
+
+
+.navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*gap: 3.5rem;*/
+    align-self: stretch;
+    border-radius: 6.25rem;
+
+    /* Glassmorphism background */
+    background: rgba(255, 255, 255, 0.2); /* Use a low-opacity white for the frosted look */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    backdrop-filter: blur(10px); /* The key to the frosted glass effect */
+
+    padding: 0.26rem;
+    padding-left: 0.26rem !important;
+
+    /* Glassmorphism border */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* A lighter, more transparent border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+                0 1px 3px rgba(0, 0, 0, 0.08); /* Optional: Add a subtle shadow for depth */
+}
+
+/* Glassmorphism style for supported browsers */
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+    .navbar-nav {
+        background: rgba(255, 255, 255, 0.4);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+}
+
+.nav-item{
+    border-radius: 6.25rem;
+    background: rgba(255, 255, 255, 0);
+    padding: 0.6rem 0.4375rem;
+    transition: background 0.3s ease-in-out;
+}
+
+.nav-item:hover{
+    border-radius: 6.25rem;
+    background: rgba(255, 255, 255, 0.90);
+    padding: 0.6rem 0.4375rem;
+}
+.nav-item.active{
+    border-radius: 6.25rem;
+    background: rgba(255, 255, 255, 1);
+    padding: 0.6rem 0.4375rem;
+    transition: background 0.3s ease-in-out;
+}
+
+
+
+.nav-link.nav-header{
+    color: #1B1B1B;
+    font-family: "Manrope";
+    font-size: 0.90625rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.375rem; /* 151.724% */
+    padding: 0;
+}
+
+.btn.get-btn-nav{
+    border-radius: 1.25rem;
+    border: 1.5px solid #0B7175;
+    color: #0A7479;
+    background: #FFF;
+    padding: 0.8rem 1.875rem;
+    color: #0B7175;
+    font-family: "Manrope";
+    font-size: 0.90625rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.375rem; /* 151.724% */
+}
+
+.btn.get-btn-nav:hover{
+    border-radius: 1.25rem;
+    border: 1.5px solid #0B7175;
+    background: #0A7479;
+    color: #FFF;
+}
+
+.navbar-toggler{
+    border: 1px solid rgba(255,255,255,0.2) !important;
+}
+
+.navbar-toggler:focus{
+    box-shadow: none !important;
+}
+
+/**oFFCANVAS**/
+
+/* On screens smaller than 992px (Bootstrap's `lg` breakpoint) */
+@media (max-width: 991.98px) {
+  /* When the offcanvas menu is open, make the main navbar white */
+  .offcanvas.show ~ .navbar {
+    background-color: #ffffff;
+  }
+
+  /* You may also need to change the color of the nav links for readability */
+  .navbar-toggler-icon {
+    filter: invert(1); /* Change the icon color for contrast */
+  }
+}
+
+
+.offcanvas{
+   background-color: #0A7479 !important;
+}
+
+.logo-green-off{
+    height: 100%;
+    width: auto;
+}
+
+.navbar-nav.offcanvas-navbar-nav{
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.nav-item.offcanvas-navbar-item{
+    background: transparent;
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    border-radius: 0;
+    width: 100%;
+    font-size: 1.2rem
+}
+.nav-item.offcanvas-navbar-item a{
+    color: rgba(255,255,255, 0.7);
+    font-size: 1.2rem;
+    padding: 1rem 0;
+}
+.nav-item.offcanvas-navbar-item a:hover{
+    color: rgba(255,255,255, 1);
+}
+
+.nav-item.offcanvas-navbar-item-btn{
+
+}
+.btn.get-btn-nav-off{
+    font-weight: 600;
+    color: #0A7479;
+}
+.nav-item.offcanvas-navbar-item-btn{
+    border-radius: 0.25rem;
+    color: #0A7479;
+    background: #FFF;
+    color: #0B7175;
+    font-family: "Manrope";
+    font-size: 0.90625rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.375rem; /* 151.724% */
+    width: 100%;
+}
+
+.nav-item.offcanvas-navbar-item-btn:hover{
+    background: #FFF;
+    color: #0A7479;
+}
+
+
+
+
+/**HOME**/
+
+.header{
+}
+
+
+.card.header-card {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    background: none;
+    border-radius: 0;
+    min-height: 100dvh;
+    /*height: 100vh;*/
+    transform-origin: top center;
+}
+
+/* Video background styles remain the same */
+.card-video-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
+
+/* New CSS for the gradient overlay */
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: linear-gradient(267deg, rgba(0, 0, 0, 0.00) 2.32%, rgba(0, 0, 0, 0.20) 56.26%);
+}
+
+.gradient-overlay-07 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: linear-gradient(267deg, rgba(0, 0, 0, 0.00) 2.32%, rgba(0, 0, 0, 0.8) 56.26%);
+}
+
+/* Text overlay styles remain the same but with z-index: 1 */
+.card-img-overlay {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 5rem;
+}
+
+@media (max-width: 998px) {
+  .card-img-overlay {
+    padding: 1rem;
+  }
+}
+
+.btn.liquid-btn,
+.btn.liquid-btn:hover,
+.btn.liquid-btn:focus,
+.btn.liquid-btn:active{
+    display: flex;
+    padding: 1rem 1.25rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 1.875rem;
+    border: 0.5px solid #6B6B6B;
+    background: rgba(0, 0, 0, 0.10);
+    color: #FFF;
+    font-family: "Manrope";
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 1.6875rem */
+    cursor: default;
+}
+
+.hero-title{
+    max-width: 68rem;
+    color: #FFF;
+    font-family: "Manrope";
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: clamp(3rem, 7vw, 5.75rem);
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 1.25rem;
+}
+.hero-subtitle{
+    max-width: 57rem;
+    color: #FFF;
+    font-family: "Manrope";
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    line-height: clamp(1.5rem, 3vw, 2.25rem);
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.01663rem;
+    margin-top: 1.25rem;
+}
+
+.btn.get-btn{
+    border-radius: 1.25rem;
+    background: #0A7479;
+    height: 3.20625rem;
+    padding: 0 3.94563rem 0 4.04188rem;
+    color: #FFF;
+}
+
+.btn.get-btn:hover{
+    border-radius: 1.25rem;
+    background: #0A7479;
+    height: 3.20625rem;
+    padding: 0 3.94563rem 0 4.04188rem;
+    color: #FFF;
+}
+
+/*.why-services-company-titles-section{
+    padding: 0rem 15.75rem;
+}
+@media (max-width: 992px) {
+  .why-services-company-titles-section{
+        padding: 0;
+    }
+}
+@media (max-width: 768px) {
+  .why-services-company-titles-section{
+        padding: 0;
+    }
+}
+@media (max-width: 576px) {
+  .why-services-company-titles-section{
+        padding: 0;
+    }
+}*/
+
+.btn.liquid-btn-1,
+.btn.liquid-btn-1:focus,
+.btn.liquid-btn-1:hover,
+.btn.liquid-btn-1:active{
+    display: flex;
+    padding: 1rem 1.25rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 1.875rem;
+    border: 0.5px solid #6B6B6B;
+    background: rgba(0, 0, 0, 0.05);
+    color: #1B1B1B;
+    font-family: "Manrope";
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    font-style: normal;
+    font-weight: 400;
+    line-height: clamp(1.5rem, 2.5vw, 1.6875rem);
+    cursor: default;
+}
+
+.section-title-1{
+    max-width: 73.89563rem;
+    color: #000;
+    font-family: "Manrope";
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-style: normal;
+    font-weight: 500;
+    line-height: clamp(2.5rem, 5vw, 4.5rem);
+    margin-top: 1.5rem;
+    cursor: default;
+}
+.section-subtitle-1{
+    margin-top: 1.5rem;
+    color: #4B5563;
+    font-family: "Manrope";
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 1.5rem;
+    cursor: default;
+    max-width: 71rem;
+}
+
+.section-subtitle-2{
+    margin-top: 1.5rem;
+    color: #4B5563;
+    font-family: "Manrope";
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 1.5rem;
+    cursor: default;
+    max-width: 71rem;
+}
+
+.why-service-1{
+    margin-top: 4rem;
+}
+
+.card.why-service-card-10,
+.card.why-service-card-11 {
+    border: none;
+    border-radius: 2rem;
+    padding: 2.5rem;
+}
+.card.why-service-card-10{
+    background: #DFFEFF;
+}
+.card.why-service-card-11{
+    background: #DFFFE8;
+}
+
+.why-services-company-owl-section{
+    padding-left: 16.5rem;
+    margin-top: 3.56rem;
+}
+
+@media (max-width: 992px) {
+    .why-services-company-owl-section{
+        padding-left: 0.75rem;
+    }
+}
+@media (max-width: 768px) {
+  .why-services-company-owl-section{
+        padding-left: 0.75rem;
+    }
+}
+@media (max-width: 576px) {
+    .why-services-company-owl-section{
+        padding-left: 0.75rem;
+    }
+}
+
+
+
+.card.why-service-card-1{
+    padding: 2.5rem;
+    border-radius: 2rem;
+    background: #DFFEFF;
+    border: none;
+    height: 24.375rem;
+}
+
+.card.why-service-card-2{
+    padding: 2.5rem;
+    border-radius: 2rem;
+    background: #DFFFE8;
+    border: none;
+    height: 24.375rem;
+}
+
+.why-service-card-title-1{
+    color: #222;
+    font-family: "Manrope";
+    font-size: clamp(1.9rem, 3vw, 2.5rem);
+    font-style: normal;
+    font-weight: 500;
+    line-height: clamp(2rem, 4vw, 3.25rem);
+    letter-spacing: -0.05rem;
+    max-width: 20.62rem;
+}
+
+.why-service-card-title-2{
+    max-width: 26.25rem;
+    color: #222;
+    font-family: "Manrope";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.47375rem; /* 147.375% */
+    margin-bottom: 0;
+}
+
+.why-service-card-title-3{
+    color: #222;
+    font-family: "Manrope";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.47375rem; /* 168.429% */
+    max-width: 26.25rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+}
+
+.unlock-section{
+    margin-top: 6.25rem;
+    padding: 14rem 0;
+}
+
+
+.unlock-title {
+    /* Your existing styles */
+    max-width: 70rem;
+    color: #000;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: 2.9875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 3.52rem;
+
+    /* Make the title a block element to contain the lines */
+    display: block;
+}
+
+/* Make each line a block element and hide them initially */
+/*.unlock-title span {
+    display: block;
+    opacity: 0;
+}*/
+
+.decide-what-section{
+}
+
+.decide-main-title{
+    max-width: 54rem;
+    color: #000;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-style: normal;
+    font-weight: 500;
+    line-height: clamp(2.5rem, 5vw, 4.5rem);
+    margin-top: 1.5rem;
+    cursor: default;
+}
+
+.decide-main-subtitle{
+    margin-top: 1.5rem;
+    max-width: 44rem;
+    color: #4B5563;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2rem; /* 200% */
+    margin-top: 1.5rem;
+    cursor: default;
+}
+
+.card.decide-what-card-1{
+    border: none;
+    border-radius: 2rem;
+    background: #DFFEFF;
+    padding: 2rem;
+    max-width: 42.875rem;
+}
+
+.decide-what-card-1 .card-body{
+    margin-top: 2.5rem;
+}
+
+.card.decide-what-card-2{
+    border: none;
+    border-radius: 2rem;
+    background: #DFFFE8;
+    padding: 2rem;
+    max-width: 42.875rem;
+}
+
+.decide-what-card-2 .card-body{
+    margin-top: 2.5rem;
+}
+
+.btn.decide-what-card-1-tab,
+.btn.decide-what-card-1-tab:hover,
+.btn.decide-what-card-1-tab:focus,
+.btn.decide-what-card-1-tab:active,
+.btn.decide-what-card-1-tab:focus:active {
+    border-radius: 1000rem !important;
+    background: #D5F6F8 !important;
+    padding: 0.75rem 1.5rem !important;
+    color: #000 !important;
+    font-family: "Manrope" !important;
+    font-size: 0.875rem !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: 0.8625rem !important;
+    letter-spacing: -0.003rem !important;
+    cursor: default !important;
+    border: none !important;
+    box-shadow: none !important; /* This is crucial for removing the outline */
+}
+
+.btn.decide-what-card-2-tab,
+.btn.decide-what-card-2-tab:hover,
+.btn.decide-what-card-2-tab:focus,
+.btn.decide-what-card-2-tab:active,
+.btn.decide-what-card-2-tab:focus:active {
+    border-radius: 1000rem !important;
+    background: #CCFDDA !important;
+    padding: 0.75rem 1.5rem !important;
+    color: #000 !important;
+    font-family: "Manrope" !important;
+    font-size: 0.875rem !important;
+    font-style: normal !important;
+    font-weight: 600 !important;
+    line-height: 0.8625rem !important;
+    letter-spacing: -0.003rem !important;
+    cursor: default !important;
+    border: none !important;
+    box-shadow: none !important; /* This is crucial for removing the outline */
+}
+
+.decide-title{
+    color: #000;
+    font-family: "Manrope";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.75rem; /* 116.667% */
+    letter-spacing: -0.0175rem;
+    margin-top: 1.5rem;
+}
+
+.decide-subtitle{
+    max-width: 33rem;
+    color: #000;
+    font-family: "Manrope";
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.75rem; /* 155.556% */
+    letter-spacing: -0.0175rem;
+    margin-top: 0.85rem;
+    margin-bottom: 2.5rem;
+}
+
+.btn.explore-btn,
+.btn.explore-btn:hover,
+.btn.explore-btn:focus {
+    border-radius: 1.25rem;
+    border: 1px solid #000;
+    background: #FFF;
+    color: #000;
+    font-family: "Manrope";
+    font-size: 0.90625rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.375rem; /* 151.724% */
+    letter-spacing: -0.004rem;
+    padding: 0.8125rem 1.6875rem;
+    margin-top: auto;
+}
+
+.pe-operating-section{
+    padding: 12.5rem 0rem;
+}
+
+.pe-main-title{
+    max-width: 58.75rem;
+    color: #000;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-style: normal;
+    font-weight: 500;
+    line-height: clamp(3rem, 5vw, 4.5rem);
+    cursor: pointer;
+    margin-top: 2rem;
+}
+
+.pe-main-subtitle-1{
+    color: #1B1B1B;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.75rem; /* 116.667% */
+    letter-spacing: -0.0175rem;
+    cursor: pointer;
+    margin-top: 2rem;
+}
+
+.pe-main-subtitle-2{
+    margin-top: 1.5rem;
+    max-width: 47.8rem;
+    color: #4B5563;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2rem; /* 200% */
+    cursor: pointer;
+    margin-top: 0.75rem;
+}
+
+/*.card-pin-container {
+    position: relative;
+    height: 100vh;
+}
+
+.card.phase-1-card,
+.card.phase-2-card,
+.card.phase-3-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}*/
+
+.pe-card-container{
+    margin-top:6.25rem;
+}
+
+
+.card.phase-1-card,
+.card.phase-2-card,
+.card.phase-3-card {
+    padding: 2.5rem 1.5rem;
+    border: none;
+    border-radius: 1.25rem;
+    max-width: 87.5rem;
+    margin-top: 6.25rem;
+
+}
+
+/*@media (max-width: 992px) {
+    .card.phase-1-card,
+    .card.phase-2-card,
+    .card.phase-3-card {
+        padding: 5rem;
+    }
+}
+@media (max-width: 768px) {
+    .card.phase-1-card,
+    .card.phase-2-card,
+    .card.phase-3-card{
+        padding: 4rem;
+    }
+}
+@media (max-width: 576px) {
+    .card.phase-1-card,
+    .card.phase-2-card,
+    .card.phase-3-card{
+        padding: 2rem;
+    }
+}*/
+
+.card.phase-1-card{
+    background: #DFFEFF;
+}
+.card.phase-2-card{
+    background: #DFFFE8;
+}
+.card.phase-3-card{
+    background: #DFFEFF;
+}
+
+
+
+.phase-card-title-btn-1,
+.phase-card-title-btn-2,
+.phase-card-title-btn-3 {
+    color: #000;
+    font-family: "Manrope";
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.375rem; /* 141.935% */
+    letter-spacing: -0.004rem;
+    display: flex;
+    padding: 0.625rem 0.875rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6.25rem;
+    cursor: default;
+}
+
+.phase-card-title-btn-1{
+    background: #B5FCFF;
+    /*max-width: 17rem;*/
+}
+.phase-card-title-btn-2{
+    background: #BEEDCB;
+    /*max-width: 25.15rem;*/
+}
+.phase-card-title-btn-3{
+    background: #B5FCFF;
+    /*max-width: 23rem;*/
+}
+
+.phase-card-title-2{
+    max-width: 24rem;
+    color: #000;
+    font-family: "Manrope";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2rem; /* 133.333% */
+    letter-spacing: -0.0175rem;
+}
+.phase-card-title-3{
+    color: #1B1B1B;
+    font-family: "Manrope";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.625rem;
+    letter-spacing: -0.0045rem;
+    margin-top: 1.25rem;
+}
+
+.phase-card-title-3 span{
+    color: #1B1B1B;
+    font-family: "Manrope";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.625rem; /* 162.5% */
+    letter-spacing: -0.0045rem;
+    cursor: default;
+}
+
+.list-section{
+    max-width: 37rem;
+    margin-top: 1.25rem;
+}
+
+.investor-list li{
+    color: #000;
+    font-family: "Manrope";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2rem;
+    letter-spacing: -0.0045rem;
+}
+
+.membership-benefits {
+  overflow: hidden;
+  position: relative;
+}
+.benefits-container {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.benefit {
+  flex: 0 0 100%;
+  height: 100vh; /* full screen height sections */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+}
+
+.why-services-section{
+}
+
+.why-services-title{
+    color: #000;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-style: normal;
+    font-weight: 500;
+    line-height: clamp(2.5rem, 5vw, 4.5rem);
+    cursor: pointer;
+    margin-top: 1.5rem;
+}
+
+.why-services-subtitle{
+    max-width: 37.85rem;
+    color: #4B5563;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2rem; /* 200% */
+    cursor: pointer;
+    margin-top: 1.5rem;
+}
+
+.leadership-excellence-title{
+    color: #020202;
+    font-family: "Manrope";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 1.5rem */
+    max-width: 40rem;
+    cursor: default;
+    margin-bottom: 2rem;
+}
+
+
+
+.leadership-excellence-owl{
+    margin-top: 3.56rem;
+    /*padding-left: 16.5rem;
+    position: relative;*/
+}
+
+/*.leadership-excellence-owl::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 15rem;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+    pointer-events: none;
+    z-index: 10;
+}
+@media (max-width: 992px) {
+    .leadership-excellence-owl{
+        padding-left: 0.75rem;
+    }
+}
+@media (max-width: 768px) {
+  .leadership-excellence-owl{
+        padding-left: 0.75rem;
+    }
+}
+@media (max-width: 576px) {
+    .leadership-excellence-owl{
+        padding-left: 0.75rem;
+    }
+}*/
+
+.owl-carousel .owl-item {
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.owl-carousel .owl-item.center {
+  transform: scale(1.08); /* zoomed center */
+  z-index: 5;
+}
+
+.owl-carousel .owl-item:not(.center) {
+  transform: scale(0.95);
+  opacity: 0.8;
+}
+
+.card.leader-card-1,
+.card.leader-card-2 {
+    border-radius: 1rem;
+    padding: 2rem;
+    height: 16rem;
+}
+
+.card.leader-card-1{
+    border: 1px solid #F3F4F6;
+    background: #DFFEFF;
+}
+.card.leader-card-2{
+    border: 1px solid #F3F4F6;
+    background: #DFFFE8;
+}
+
+.leader-card-text-1{
+    color: #4B5563;
+    font-family: "Manrope";
+    font-size: 0.96094rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 156.098% */
+}
+.leader-card-text-2{
+    margin-top: 1.75rem;
+    color: #6B7280;
+    font-family: "Manrope";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem; /* 142.857% */
+}
+
+.with-60-years-section{
+    margin-top: 14.5rem;
+}
+
+.heading-102{
+    color: #020202;
+    font-family: "Manrope";
+    font-size: clamp(2rem, 4vw, 2.69531rem);
+    font-style: normal;
+    font-weight: 500;
+    line-height: clamp(2.25rem, 5vw, 3.25rem);
+    max-width: 50rem;
+}
+
+.card.with-60-years-card{
+    border: none;
+    margin-top: 10rem;
+}
+.card.with-60-years-card img{
+    width: 7.875rem;
+    height: 4.5rem;
+}
+.text-1010{
+    margin-top: 1.5rem;
+    color: #020202;
+    font-family: "Manrope";
+    font-size: 1.05469rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.75rem; /* 165.926% */
+}
+
+.btn.btn-dark,
+.btn.btn-dark:hover,
+.btn.btn-dark:focus {
+    display: flex;
+    padding: 0.75rem 1.5625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.75rem;
+    border: 1px solid #020202;
+    background: #020202;
+    color: #FFF;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: 0.96094rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1rem; /* 104.065% */
+    max-width: 17rem;
+    margin-top: 1.75rem;
+}
+
+.industries-section{
+    padding: 6.25rem 0;
+}
+
+
+.industries-section-title{
+    max-width: 58.75rem;
+    cursor: pointer;
+    color: #000;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-style: normal;
+    font-weight: 500;
+    line-height: clamp(2.9rem, 5vw, 4.5rem);
+}
+
+.industries-section-subtitle{
+    max-width: 37.5rem;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    color: #4B5563;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2rem; /* 200% */
+}
+
+
+.container-section-1{
+    margin: 6.5rem 0;
+}
+
+
+.card.industries-card-1,
+.card.industries-card-2 {
+    max-width: 42.5rem;
+    border: none;
+    border-radius: 0.75rem;
+}
+
+.card.industries-card-1{
+    background: #DFFEFF;
+}
+.card.industries-card-2{
+    background: #DFFFE8;
+}
+
+.card-body.industries-card-body{
+    padding: 3rem;
+}
+
+.industry-bg-image{
+    background-size: cover;
+    background-position: right 3%;
+    background-repeat: no-repeat;
+    height: 100%;
+    border-radius: 0.75rem 0 0 0.75rem;
+}
+
+@media (max-width: 992px) {
+    .industry-bg-image{
+        background-position: center;
+        height: 16rem;
+        border-radius: 0.75rem 0.75rem 0 0;
+    }
+}
+@media (max-width: 768px) {
+    .card-body.industries-card-body{
+        padding: 2rem;
+    }
+}
+@media (max-width: 576px) {
+
+}
+
+.img-icon-div{
+    display: flex;
+    width: 2.438rem;
+    height: 2.438rem;
+    padding: 0.67356rem 0.74838rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.37419rem;
+    border-radius: 0.30863rem;
+    background: #66A7F5;
+}
+
+.industry-icon{
+    width: 1.25rem;
+    height: 1.25rem;
+}
+
+
+.subtitle-1{
+    color: #3B3B3B;
+    leading-trim: both;
+    text-edge: cap;
+    font-size: 0.77444rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.00119rem;
+    margin-top: 1.56rem;
+    cursor: default;
+}
+
+.subtitle-2{
+    margin-top: 1.25rem;
+    color: #000;
+    leading-trim: both;
+    text-edge: cap;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    cursor: default;
+}
+
+.subtitle-3{
+    margin-top: 1.88rem;
+    max-width: 17rem;
+    overflow: hidden;
+    color: #000;
+    leading-trim: both;
+    text-edge: cap;
+    text-overflow: ellipsis;
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 171.429% */
+    letter-spacing: 0.00219rem;
+    cursor: default;
+}
+
+.view-more-link{
+    display: flex;
+    width: 9.9375rem;
+    align-items: center;
+    gap: 0.625rem;
+    color: #000;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: Manrope;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 0.0125rem;
+    text-decoration: none;
+    margin-top: 1.56rem;
+}
+
+.view-more-icon{
+    width: 0.9375rem;
+}
+.view-all-btn-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+}
+.btn.view-all-btn,
+.btn.view-all-btn:hover,
+.btn.view-all-btn:focus {
+    border-radius: 1.25rem;
+    border: 1px solid #000;
+    background: #FFF;
+    color: #000;
+    font-family: "Manrope";
+    font-size: 0.90625rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.375rem; /* 151.724% */
+    letter-spacing: -0.004rem;
+    padding: 0.8125rem 1.6875rem;
+}
+
+.connect-with-us-section{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    padding: 6.25rem 0;
+}
+
+.connect-with-us-btn,
+.connect-with-us-btn:hover,
+.connect-with-us-btn:focus {
+    display: flex;
+    height: 2.64294rem;
+    padding: 0 1.22706rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.47194rem;
+    border-radius: 0.47194rem;
+    border: 1px solid #616161;
+    background: linear-gradient(180deg, rgba(38, 38, 38, 0.50) 0%, rgba(51, 51, 51, 0.50) 100%);
+    box-shadow: 0 3.33px 30px 0 rgba(0, 0, 0, 0.20);
+    color: #FFF;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: 0.81031rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%; /* 0.97238rem */
+    letter-spacing: -0.00813rem;
+    cursor: default;
+}
+
+.connect-with-us-title-1,
+.connect-with-us-title-2 {
+    color: #FFF;
+    font-family: "Manrope";
+    font-size: clamp(2.9rem, 5vw, 3.375rem);
+    font-style: normal;
+    font-weight: 600;
+    line-height: clamp(2.5rem, 6vw, 4.3875rem);
+    letter-spacing: -0.2025rem;
+    max-width: 39.5rem;
+}
+.connect-with-us-title-1{
+    margin: 1.5rem 0 0 0;
+}
+
+.connect-with-us-subtitle-1,
+.connect-with-us-subtitle-2 {
+    color: #FFF;
+    font-family: "Manrope";
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 1.6875rem */
+}
+
+.connect-with-us-subtitle-1{
+    margin-top: 1.25rem;
+    margin-bottom: 0;
+}
+.connect-with-us-subtitle-2{
+    margin-bottom: 2rem;
+}
+
+.connect-section-container {
+    display: flex;
+    align-items: center; /* Aligns items vertically in the center */
+    gap: 1.5rem; /* Adds space between the button and the text */
+}
+
+.connect-with-our-btn{
+    display: flex;
+    padding: 0.75rem 1.5625rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.75rem;
+    border: 1px solid #020202;
+    background: #FFF;
+    color: #1C1C1C;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1rem; /* 114.286% */
+}
+
+.trusted-by-silicon-text{
+    color: #FFF;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%; /* 0.9rem */
+    margin: 0;
+}
+
+.card-img-top.ai-logo{
+    max-width: 24.466rem;
+    height: 7.5rem;
+}
+
+.meet-operator-section{
+    padding: 6.25rem 0;
+}
+
+
+
+.what-vs-what-section{
+    border-radius: 2rem;
+    background: linear-gradient(195deg, rgba(43, 255, 255, 0.20) 0%, rgba(43, 255, 255, 0.06) 50%, rgba(43, 255, 255, 0.12) 100%);
+    backdrop-filter: blur(20px);
+    padding: 6.25rem 0;
+    margin-top: 6.25rem;
+}
+.what-we-title-1, .what-we-title-2{
+    color: #1B1B1B;
+    font-family: "Manrope";
+    font-size: 3.375rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 4.3875rem */
+    letter-spacing: -0.2025rem;
+    max-width: 25.87rem;
+}
+.what-we-title-2{
+    margin-bottom: 2.5rem;
+}
+
+.what-we-subtitle{
+    color: #000;
+    font-family: "Manrope";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.5rem; /* 150% */
+}
+
+.list-section-1{
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.list-section-1 img{
+    display: flex;
+    width: 1rem;
+    height: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.list-section-1 p{
+    color: rgba(0, 0, 0, 0.80);
+    font-size: 0.9375rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.375rem; /* 146.667% */
+    margin: 0;
+}
+.contact-us-section{
+    margin: 6.25rem 0;
+}
+.contact-section-title{
+    color: #1B1B1B;
+    font-family: Manrope;
+    font-size: clamp(2rem, 5vw, 3.375rem);
+    font-style: normal;
+    font-weight: 600;
+    line-height: clamp(2.5rem, 6vw, 4.3875rem);
+    letter-spacing: -0.03375rem;
+    cursor: default;
+}
+
+.contact-section-title-1{
+    color: #4B5563;
+    font-family: "Manrope";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2rem; /* 200% */
+    margin-top: 1.5rem;
+    cursor: default;
+}
+
+.form-section{
+    margin-top: 6.25rem;
+}
+
+.form-label.contact-form-label{
+    color: #8B8B8B;
+    font-family: "Manrope";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.05156rem;
+    text-transform: uppercase;
+}
+
+.form-control.contact-form-control{
+    border-radius: 0;
+    border-left: none; border-right: none;
+    border-top: none;
+    border-bottom: 1px solid #6C6C6C;
+    padding: 0.5rem 0;
+}
+
+.form-control.contact-form-control:focus{
+    border-radius: 0;
+    border-left: none; border-right: none;
+    border-top: none;
+    border-bottom: 1px solid #6C6C6C;
+    padding: 0.5rem 0;
+    box-shadow: none;
+}
+
+.form-control.contact-form-control::placeholder{
+    color: #C9C9C9;
+    font-family: "Manrope";
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.05156rem;
+    text-transform: uppercase;
+}
+
+.form-select.contact-form-label-1{
+    border-radius: 0;
+    border-left: none; border-right: none;
+    border-top: none;
+    border-bottom: 1px solid #6C6C6C;
+    padding: 0.5rem 0;
+}
+
+.form-select:focus{
+    box-shadow: none !important;
+    border-bottom: 1px solid #6C6C6C !important;
+}
+
+.form-select.contact-form-control-1:focus{
+    border-radius: 0;
+    border-left: none; border-right: none;
+    border-top: none;
+    border-bottom: 1px solid #6C6C6C;
+    padding: 0.5rem 0;
+    box-shadow: none !important;
+}
+
+.form-select.contact-form-control-1::placeholder{
+    color: #C9C9C9;
+    font-family: "Manrope";
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.05156rem;
+    text-transform: uppercase;
+}
+
+
+.form-check-label{
+    color: #4D4D4D;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: "Manrope";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.5rem; /* 200% */
+    letter-spacing: 0.05156rem;
+    text-transform: uppercase;
+}
+.numbers-section{
+    margin-top: 6.25rem;
+}
+.number-percentage{
+    color: #1B1B1B;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: "Manrope";
+    font-size: 3.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.05625rem;
+}
+.number-percentage-sub{
+    color: #1B1B1B;
+    leading-trim: both;
+    text-edge: cap;
+
+    /* Body 2 */
+    font-family: "Manrope";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.75rem; /* 175% */
+    letter-spacing: 0.0025rem;
+    margin-top: 1.56rem;
+    max-width: 19rem;
+}
+
+
+.contact-call-btn{
+    margin: 3rem 0 !important;
+}
+
+/*.contact-div-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-self: stretch;
+}*/
+
+.social-contact-div{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.contact-div-2{
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 1rem;
+    align-self: stretch;
+}
+
+.contact-div-2 a,
+.contact-div-2 p{
+    color: #8B8B8B;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: "Manrope";
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 300;
+    line-height: 1.5rem; /* 200% */
+    letter-spacing: 0.05156rem;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+
+
+/*******ABOUT US******/
+
+.other-header{
+
+}
+
+.card.header-other-card {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    background: none;
+    border-radius: 0;
+    min-height: 100dvh;
+    /*height: 100vh;*/
+    transform-origin: top center;
+}
+
+/* Video background styles remain the same */
+.card-video-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+}
+
+/* New CSS for the gradient overlay */
+.gradient-overlay-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  /*background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, #000 94.39%);*/
+}
+
+/* Text overlay styles remain the same but with z-index: 1 */
+.card-img-overlay-1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 5rem;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 998px) {
+  .card-img-overlay-1 {
+    padding: 1rem;
+  }
+}
+
+.hero-title-1{
+    max-width: 68rem;
+    color: #FFF;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: clamp(3rem, 7vw, 5.75rem);
+    font-style: normal;
+    font-weight: 500;
+}
+.hero-subtitle-1{
+    max-width: 57rem;
+    color: #FFF;
+    font-family: "Manrope";
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    line-height: clamp(1.5rem, 3vw, 2.25rem);
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.01663rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+
+.component-section{
+    background: #000;
+    padding: clamp(6rem, 10vw, 15rem) 0;
+}
+
+.component-title-1{
+    color: #FFF;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-style: normal;
+    font-weight: 500;
+    line-height: clamp(2.5rem, 4vw, 4rem);
+    max-width: 93rem;
+}
+
+.component-title-2{
+    color: #FFF;
+    text-align: center;
+     font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-style: normal;
+    font-weight: 500;
+   line-height: clamp(3rem, 5vw, 4.5rem);
+    margin-bottom: 1.69rem;
+}
+
+.our-vision-section{
+    padding: 6.25rem 0;
+}
+
+.our-vision-title-1{
+    color: #1B1B1B;
+    font-family: "Manrope";
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-style: normal;
+    font-weight: 500;
+    line-height: clamp(3rem, 5vw, 4.5rem);
+    cursor: default;
+}
+
+.our-vision-title-2{
+    color: #1B1B1B;
+    font-family: "Manrope";
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2rem; /* 177.778% */
+    margin-top: 1.5rem;
+    cursor: default;
+}
+
+.our-vision-title-3{
+    margin-top: 0.75rem;
+    cursor: default;
+    max-width: 57.5rem;
+    color: #4B5563;
+    font-family: "Manrope";
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 1.6875rem */
+}
+
+.three-vision-section{
+    margin-top: 6.25rem;
+}
+
+.card.vision-card{
+    padding: 2.5rem 0;
+    border: none;
+
+}
+.our-vision-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 2.5rem;
+}
+.our-vision-title-4{
+    color: #21272A;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.125rem; /* 141.667% */
+    letter-spacing: -0.0225rem;
+    max-width: 22rem;
+    cursor: default;
+}
+
+.our-vision-text-5{
+    margin-top: 1.25rem;
+    color: #21272A;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+    letter-spacing: -0.015rem;
+    max-width: 22rem;
+    cursor:default;
+}
+
+
+.our-values-section{
+    padding: 6.25rem 0;
+    background: #F9F9F9;
+}
+
+/**about accordion**/
+
+.accordion-item{
+    border-bottom: 1px solid #000 !important;
+}
+
+.accordion-button{
+    padding: 1.875rem 0 !important;
+    color: #21272A !important;
+    font-size: 1.5rem !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: 2.125rem !important; /* 141.667% */
+    letter-spacing: -0.0225rem !important;
+    background: transparent !important;
+}
+.accordion-button:focus{
+    box-shadow: none !important;
+}
+
+.accordion-body{
+    max-width: 49.35rem !important;
+    color: #21272A !important;
+    font-size: 1rem !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    line-height: 1.5rem !important; /* 150% */
+    letter-spacing: -0.015rem !important;
+    padding-left: 0 !important;
+}
+
+.accordion-button::after {
+     background-image: url("../icons/Group1597880691.svg") !important;
+}
+
+.accordion-button:not(.collapsed)::after{
+    background-image: url("../icons/Group1597880692.svg") !important;
+}
+
+.why-our-values-section{
+    padding: 6.25rem 0;
+}
+.why-our-values-container{
+    margin-top: 4rem;
+}
+
+.card.our-values-card-1{
+    border-radius: 1rem;
+    background: #DFFEFF;
+    border: none;
+    padding: 2.5rem;
+}
+.card.our-values-card-2{
+    border-radius: 1rem;
+    background: #DFFFE8;
+    border: none;
+    padding: 2.5rem;
+}
+
+.our-values-text-1{
+    color: #21272A;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.125rem; /* 141.667% */
+    letter-spacing: -0.0225rem;
+    cursor: default;
+}
+
+.our-values-text-2{
+    color: #21272A;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+    letter-spacing: -0.015rem;
+    margin: 1.25rem 0 0 0 ;
+    cursor: default;
+}
+
+.meet-an-operator-section{
+    padding: 6.25rem 0;
+    background: #F9F9F9;
+}
+
+.meet-text-1,
+.philosophy-text-1{
+    color: #1B1B1B;
+    font-family: "Manrope";
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-style: normal;
+    font-weight: 500;
+    line-height: clamp(2.5rem, 5vw, 4.5rem);
+    cursor: default;
+}
+.meet-text-2,
+.philosophy-text-2{
+    color: #4B5563;
+    font-family: "Manrope";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2rem; /* 200% */
+    margin-top: 1.5rem;
+    cursor: default;
+    max-width: 42rem;
+}
+
+.team-bg-image{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    border-radius: 1.25rem;
+}
+
+@media (max-width: 992px) {
+    .team-bg-image{
+        background-position: center;
+        height: 16rem;
+    }
+}
+
+.meet-text-3{
+    color: #1B1B1B;
+    font-family: "Manrope";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.25rem; /* 150% */
+    letter-spacing: -0.00013rem;
+    cursor: default;
+}
+
+.team-section{
+    margin: 5rem 0;
+}
+
+.team-detail-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  align-self: stretch;
+  gap: 1rem;
+}
+.team-detail-div h4 {
+  margin: 0; /* This removes the default top and bottom margin */
+}
+.meet-text-4{
+    color: #1B1B1B;
+    font-family: "Manrope";
+    font-size: 1.41819rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2.30456rem; /* 162.5% */
+    letter-spacing: -0.00013rem;
+    cursor: default;
+}
+
+.meet-text-5{
+    color: rgba(0, 0, 0, 0.70);
+    font-family: "Manrope";
+    font-size: 1.24094rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2.30456rem; /* 185.714% */
+    letter-spacing: -0.00013rem;
+    cursor: default;
+}
+
+.team-section-1{
+}
+
+.card.team-card-1{
+    border: none;
+    padding: 2.5rem 0;
+    background: transparent;
+}
+
+.meet-text-6{
+    color: #21272A;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.125rem; /* 141.667% */
+    letter-spacing: -0.0225rem;
+    cursor: default;
+}
+
+.meet-text-7{
+    color: #21272A;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+    letter-spacing: -0.015rem;
+    margin-top: 1.5rem;
+    cursor: default;
+    max-width: 22rem;
+}
+
+.team-card-1-icon-bg{
+    display: flex;
+    width: 4rem;
+    height: 4rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 0.5rem;
+    background: #DFFEFF;
+    margin-bottom: 2rem;
+}
+
+.team-card-1-icon{
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+
+.our-philosophy-section{
+    padding: 6.25rem 0 0 0;
+}
+
+.our-philosophy-owl-section{
+    padding-left: 16.5rem;
+    margin-top: 4rem;
+    margin-bottom: 6.25rem;
+}
+
+@media (max-width: 992px) {
+    .our-philosophy-owl-section{
+        padding-left: 0.75rem;
+    }
+}
+@media (max-width: 768px) {
+  .our-philosophy-owl-section{
+        padding-left: 0.75rem;
+    }
+}
+@media (max-width: 576px) {
+    .our-philosophy-owl-section{
+        padding-left: 0.75rem;
+    }
+}
+
+.our-philosophy-section-2{
+    margin-top: 4rem;
+}
+
+.card.operating-card-1,
+.card.operating-card-2 {
+    padding: 2.5rem;
+    border-radius: 2rem;
+    border: none;
+}
+
+.card.operating-card-1{
+    background: #DFFEFF;
+}
+
+.card.operating-card-2{
+    background: #DFFFE8;
+}
+
+.philosophy-text-3{
+    color: #222;
+    font-family: "Manrope";
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-style: normal;
+    font-weight: 500;
+    line-height: clamp(2.25rem, 4.5vw, 3.25rem);
+    letter-spacing: -0.05rem;
+    max-width: 26rem;
+}
+
+.philosophy-text-4{
+    color: #222;
+    font-family: "Manrope";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.47375rem; /* 168.429% */
+    max-width: 26.25rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0;
+}
+
+
+
+.our-impact-section{
+    margin: 12.5rem 0;
+}
+
+.our-impact-text-1{
+    color: #1B1B1B;
+    font-family: "Manrope";
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-style: normal;
+    font-weight: 500;
+    line-height: clamp(2.5rem, 5vw, 4.5rem);
+    cursor: default;
+}
+.our-impact-text-2{
+    color: #4B5563;
+    font-family: "Manrope";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2rem; /* 200% */
+    margin-top: 1.5rem;
+    cursor: default;
+}
+
+
+.card.our-impact-card-1,
+.card.our-impact-card-2{
+    padding: 1.56rem;
+    border-radius: 1.5rem;
+    border: none;
+    cursor: default;
+}
+.card.our-impact-card-1{
+    background: #DFFEFF;
+}
+.card.our-impact-card-2{
+    background: #DFFFE8;
+}
+
+.our-impact-bg{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 20rem;
+    border-radius: 1.5rem;
+}
+
+@media (max-width: 992px) {
+    .our-impact-bg{
+        background-position: center;
+        height: 16rem;
+    }
+}
+
+.our-impact-text-4{
+    color: #000;
+    leading-trim: both;
+    text-edge: cap;
+    font-family: "Manrope";
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    cursor: default;
+}
+
+.our-impact-text-5{
+    overflow: hidden;
+    color: #000;
+    leading-trim: both;
+    text-edge: cap;
+    text-overflow: ellipsis;
+    font-family: "Manrope";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 171.429% */
+    letter-spacing: 0.00219rem;
+    cursor: default;
+    max-width: 22rem;
+}
+
+.connect-with-us-title-3 {
+    color: #FFF;
+    font-family: "Manrope";
+    font-size: clamp(2rem, 4vw, 3.375rem);
+    font-style: normal;
+    font-weight: 600;
+    line-height: clamp(2.5rem, 5vw, 4.3875rem);
+    letter-spacing: -0.2025rem;
+}
+.connect-with-us-title-3{
+    margin: 1.5rem 0 0 0;
+}
+
+.connect-with-us-subtitle-3 {
+    color: #FFF;
+    font-family: "Manrope";
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 1.6875rem */
+    margin-top: 1.25rem;
+}
+
+
+/***WHAT WE DO****/
+
+.header-bg-img{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100dvh;
+}
+
+.hero-title-2{
+    color: #FFF;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: clamp(3rem, 7vw, 5.75rem);
+    font-style: normal;
+    font-weight: 500;
+    margin-top: 2rem;
+}
+
+
+
+
+
+.hero-subtitle-2{
+    max-width: 78rem;
+    color: #FFF;
+    font-family: "Manrope";
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    line-height: clamp(1.5rem, 3vw, 2.25rem);
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: -0.01663rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.before-you-section-1{
+    padding: 6.25rem 0;
+}
+
+.before-text-1{
+    color: #1B1B1B;
+    font-family: "Manrope";
+    font-size: clamp(1.9rem, 3.5vw, 2.5rem);
+    font-style: normal;
+    font-weight: 500;
+    line-height: clamp(2.25rem, 4.5vw, 3.25rem);
+    cursor: default;
+    max-width: 42.25rem;
+}
+
+.before-text-2{
+    color: #1B1B1B;
+    font-family: "Manrope";
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2rem; /* 177.778% */
+    max-width: 43.75rem;
+    margin-top: 1.5rem;
+    cursor: default;
+}
+
+.before-text-3{
+    color: #4B5563;
+    font-family: "Manrope";
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 1.6875rem */
+    max-width: 45.5rem;
+    margin-top: 0.75rem;
+    cursor: default;
+    margin-bottom: 0;
+}
+
+.before-bg-img{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 1.5rem;
+    height: 36rem;
+}
+@media (max-width: 992px) {
+    .before-bg-img {
+        height: 18rem;
+    }
+}
+
+.before-bg-img-101{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 1.5rem;
+    height: 14.5rem;
+}
+@media (max-width: 992px) {
+    .before-bg-img-101 {
+        height: 14.5rem;
+    }
+}
+
+.before-you-section-2{
+    padding: 6.25rem 0;
+    background: #F9F9F9;
+}
+
+.before-you-section-3{
+    padding: 13rem 0;
+}
+
+.before-text-4{
+    color: #1B1B1B;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-style: normal;
+    font-weight: 500;
+    line-height: clamp(2.5rem, 4vw, 4rem);
+    max-width: 93rem;
+    cursor: default;
+}
+
+.our-core-service-section{
+    padding: 6.25rem 0;
+}
+
+.core-text-1{
+    color: #1B1B1B;
+    font-family: "Manrope";
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    font-style: normal;
+    font-weight: 500;
+    line-height: clamp(2.5rem, 5vw, 4.5rem);
+    cursor: default;
+}
+.core-text-2{
+    color: #4B5563;
+    font-family: "Manrope";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2rem; /* 200% */
+    margin-top: 1.5rem;
+    max-width: 47rem;
+    cursor: default;
+}
+
+.our-core-subsection{
+}
+
+.card.our-core-card{
+    border-top: 0; border-right: 0; border-left: 0;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.45);
+    padding: 3.12rem 0;
+    border-radius: 0;
+}
+
+.core-text-3{
+    color: #000;
+    font-family: "Manrope";
+    font-size: 1.75rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%; /* 1.925rem */
+    max-width: 21rem;
+    cursor: default;
+    margin-bottom: 0.75rem;
+}
+
+.core-text-4{
+    max-width: 21rem;
+    color: rgba(0, 0, 0, 0.70);
+    font-family: "Manrope";
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 110%; /* 1.1rem */
+    cursor: default;
+    margin: 0;
+}
+.core-text-5{
+    margin-top: 0.75rem;
+    color: #1B1B1B;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.625rem; /* 162.5% */
+    letter-spacing: -0.0045rem;
+    cursor: default;
+    max-width: 21rem;
+    margin-bottom: 0;
+}
+
+.core-text-6{
+    color: #1B1B1B;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.625rem;
+    letter-spacing: -0.0045rem;
+    cursor: default;
+}
+
+.core-text-7{
+    color: #000;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 1.6875rem */
+    letter-spacing: -0.0225rem;
+    max-width: 29rem;
+    cursor: default;
+}
+
+.list-section-1{
+    margin-top: 1rem;
+}
+
+.investor-list-1 li{
+    color: #1B1B1B;
+    font-family: "Manrope";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 220%; /* 1.925rem */
+    cursor: default;
+}
+
+.philosophy-section-1{
+    margin-top: 4rem;
+}
+
+.card.phil-card-1,
+.card.phil-card-2{
+    border: none;
+    border-radius: 2rem;
+    padding: 2.5rem;
+}
+.card.phil-card-1{
+    background: #DFFEFF;
+}
+.card.phil-card-2{
+    background: #DFFFE8;
+}
+
+.core-text-8{
+    color: #222;
+    font-family: "Manrope";
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 3.25rem; /* 130% */
+    letter-spacing: -0.05rem;
+    margin-bottom: 2rem;
+    cursor: default;
+}
+
+.core-text-9{
+    color: #222;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.625rem; /* 162.5% */
+    margin-top: 1.19rem;
+    margin-bottom: 0;
+    cursor: default;
+}
+
+.card.banner-card-1{
+    background: transparent;
+    border: none;
+    padding: 2.5rem 0;
+}
+
+.banner-number{
+    display: flex;
+    width: 3.375rem;
+    padding: 0.625rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 3.125rem;
+    background: rgba(0, 0, 0, 0.12);
+    color: #FFF;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.125rem; /* 141.667% */
+    letter-spacing: -0.0225rem;
+}
+
+.banner-text-1{
+    color: #FFF;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.125rem; /* 141.667% */
+    letter-spacing: -0.0225rem;
+}
+.banner-text-2{
+    margin-top: 1.5rem;
+    color: #FFF;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+    letter-spacing: -0.015rem;
+}
+
+/***EXPLORE GROWTH EQUITY**/
+
+.hero-title-3{
+    max-width: 83rem;
+    color: #1B1B1B;
+    text-align: center;
+    font-family: "Manrope";
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    line-height: clamp(3rem, 7vw, 5.75rem);
+    font-style: normal;
+    font-weight: 500;
+    cursor: default;
+}
+
+.hero-subtitle-3{
+    margin-top: 2rem;
+    color: rgba(27, 27, 27, 0.80);
+    text-align: center;
+    font-family: "Manrope";
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-style: normal;
+    font-weight: 500;
+    line-height: clamp(1.5rem, 3vw, 2.25rem);
+    letter-spacing: -0.01663rem;
+    cursor: default;
+    max-width: 55rem;
+}
+
+.b2b-section{
+    padding: 6.25rem 0;
+}
+
+.b2b-text-1{
+    max-width: 38rem;
+    color: #0F0101;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 150%; /* 2.25rem */
+    letter-spacing: -0.015rem;
+}
+
+.b2b-text-2{
+    max-width: 38rem;
+    color: #000;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.625rem; /* 162.5% */
+    letter-spacing: -0.01rem;
+}
+
+.hero-pill-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.nav-pills.hero-pills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*gap: 3.5rem;*/
+    align-self: center;
+    width: fit-content;
+    border-radius: 6.25rem;
+
+    /* Glassmorphism background */
+    background: rgba(255, 255, 255, 0.2); /* Use a low-opacity white for the frosted look */
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    backdrop-filter: blur(10px); /* The key to the frosted glass effect */
+
+    padding: 0.26rem;
+    padding-left: 0.26rem !important;
+
+    /* Glassmorphism border */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* A lighter, more transparent border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1),
+                0 1px 3px rgba(0, 0, 0, 0.08); /* Optional: Add a subtle shadow for depth */
+}
+
+/* Glassmorphism style for supported browsers */
+@supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
+    .nav-pills.hero-pills {
+        background: rgba(255, 255, 255, 0.4);
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+}
+
+.nav-item.hero-pill-item{
+    border-radius: 6.25rem;
+    background: rgba(255, 255, 255, 0);
+    padding: 0.6rem 0.4375rem;
+    transition: background 0.3s ease-in-out;
+}
+.nav-item.hero-pill-item .nav-link{
+    color: #1B1B1B;
+    font-size: 0.90625rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.375rem; /* 151.724% */
+}
+
+.nav-item.hero-pill-item:hover{
+    border-radius: 6.25rem;
+    background: rgba(255, 255, 255, 0.90);
+    padding: 0.6rem 0.4375rem;
+}
+
+.nav-item.hero-pill-item.active-pill{
+    border-radius: 6.25rem;
+    background: #0A7479;
+    padding: 0.6rem 0.4375rem;
+    transition: background 0.3s ease-in-out;
+}
+
+.nav-item.hero-pill-item.active-pill .nav-link{
+    color: #FFF;
+    font-size: 0.90625rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.375rem; /* 151.724% */
+}
+
+.pursue-bg-img{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0.75rem;
+    margin-top: 4.75rem;
+    height: 37rem;
+}
+
+@media (max-width: 992px) {
+    .pursue-bg-img {
+        height: 18rem;
+    }
+}
+
+.b2b-section-1{
+    background: #F9F9F9;
+    padding: 6.25rem 0;
+}
+
+.pursue-bg-img-1{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 1.5rem;
+    height: 33rem;
+}
+
+@media (max-width: 992px) {
+    .pursue-bg-img-1 {
+        height: 18rem;
+    }
+}
+
+.b2b-text-3{
+    color: #1B1B1B;
+    font-size: 2.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%; /* 3.25rem */
+}
+.b2b-text-4{
+    margin-top: 1.5rem;
+    color: #1B1B1B;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2rem; /* 177.778% */
+}
+
+.b2b-text-5{
+    color: rgba(27, 27, 27, 0.70);
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 2.25rem */
+}
+
+.b2b-text-5 span{
+    color: #1B1B1B;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    margin-top: 2rem;
+}
+
+.pursue-invert-section{
+    padding-top: 6.25rem;
+}
+
+.card.invert-card{
+    border: none;
+    padding: 1rem;
+    background: transparent;
+    border-radius: 0.625rem;
+    transition: background-color 0.3s ease;
+}
+.card.invert-card:hover {
+    background-color: #0A7479;
+
+}
+.invert-text-1,
+.invert-text-4,
+.invert-text-5{
+    color: #1B1B1B;
+    leading-trim: both;
+    text-edge: cap;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -0.045rem;
+}
+.invert-text-1{
+    font-size: 3.5rem;
+}
+.invert-text-4{
+    font-size: 3rem;
+}
+.invert-text-5{
+    font-size: 2rem;
+}
+.invert-text-2{
+    margin-top: 1.5rem;
+    color: #21272A;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.125rem; /* 141.667% */
+    letter-spacing: -0.0225rem;
+}
+.invert-text-3{
+    margin-top: 0.75rem;
+    color: #21272A;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+    letter-spacing: -0.015rem;
+}
+
+.card.invert-card:hover .invert-text-1,
+.card.invert-card:hover .invert-text-2,
+.card.invert-card:hover .invert-text-3,
+.card.invert-card:hover .invert-text-4,
+.card.invert-card:hover .invert-text-5{
+    color: #FFFFFF;
+    cursor: default;
+}
+
+.b2b-section-2{
+    padding: 6.25rem 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.card.pursue-card-101{
+    background: transparent;
+    border: none;
+    max-width: 46rem;
+}
+
+.logo-text-div-4{
+    margin-top: 4rem;
+}
+
+.logo-text-div{
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    align-self: stretch;
+    margin-bottom: 1rem;
+}
+.logo-text-div-1{
+    margin-bottom: 0;
+    color: #1B1B1B;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+
+}
+
+.logo-text-div-2{
+    color: #1B1B1B;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2rem; /* 133.333% */
+    letter-spacing: -0.0175rem;
+}
+
+.logo-text-div-3{
+    color: #1B1B1B;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.625rem; /* 144.444% */
+    letter-spacing: -0.0045rem;
+}
+
+.card.pursue-card-102{
+    background: transparent;
+    border: none;
+    max-width: 59rem;
+}
+
+.pursue-text-101{
+    max-width: 48rem;
+    margin-top: 4rem;
+    color: #1B1B1B;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 2rem; /* 133.333% */
+    letter-spacing: -0.0175rem;
+}
+
+.pursue-text-102{
+    color: #1B1B1B;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 1.625rem;
+    letter-spacing: -0.0045rem;
+}
+.pursue-text-102 span{
+    color: #1B1B1B;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 1.625rem;
+    letter-spacing: -0.0045rem;
+}
+
+.b2b-section-3{
+    padding: 6.25rem 0;
+    background: #DFFEFF;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card.how-card{
+    background: transparent;
+    border: none;
+    padding: 2.5rem 0;
+}
+
+.how-section-1{
+    padding-top: 4rem;
+}
+
+.how-number{
+    display: flex;
+    width: 3.375rem;
+    padding: 0.625rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 3.125rem;
+    background: #FFF;
+    color: #1B1B1B;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.125rem; /* 141.667% */
+    letter-spacing: -0.0225rem;
+}
+
+.how-text-1{
+    max-width: 18rem;
+    margin-top: 2rem;
+    color: #1B1B1B;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.125rem; /* 141.667% */
+    letter-spacing: -0.0225rem;
+}
+.how-text-2{
+    max-width: 18rem;
+    margin-top: 1.25rem;
+    color: #1B1B1B;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+    letter-spacing: -0.015rem;
+}
+
+.b2b-section-4{
+    padding: 6.25rem 0;
+    background: #FFF;
+}
+
+.card.our-card-1{
+    border: none;
+    padding: 2.5rem  0;
+    background: transparent;
+}
+
+.our-card-text-1{
+    display: flex;
+    width: 3.375rem;
+    padding: 0.625rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    border-radius: 3.125rem;
+    background: #DFFEFF;
+    color: #1B1B1B;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.125rem; /* 141.667% */
+    letter-spacing: -0.0225rem;
+}
+.our-card-text-2{
+    max-width: 18rem;
+    color: #1B1B1B;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.125rem; /* 141.667% */
+    letter-spacing: -0.0225rem;
+    margin-top: 2rem;
+}
+
+.our-card-text-3{
+    margin-top: 0.75rem;
+    color: #1B1B1B;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+    letter-spacing: -0.015rem;
+}
+.b2b-section-5{
+    background: #F9F9F9;
+    padding: 6.25rem 0;
+}
+
+.pursue-bg-img-2{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 1.5rem;
+    height: 40rem;
+}
+
+@media (max-width: 992px) {
+    .pursue-bg-img-2 {
+        height: 20rem;
+    }
+}
+
+
+
+/**Explore Growth Equity**/
+.growth-section-1{
+    padding: 6.25rem 0;
+}
+
+.growth-subsection-1{
+    margin-top: 4rem;
+}
+
+.card.growth-card{
+    padding: 2.5rem 0;
+    border: 0;
+    background: transparent;
+}
+
+.our-vision-icon-1 {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 2rem;
+}
+.growth-text-1{
+    color: #1B1B1B;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.125rem; /* 141.667% */
+    letter-spacing: -0.0225rem;
+}
+.growth-text-2{
+    margin-top: 1.25rem;
+    max-width: 22rem;
+    color: #1B1B1B;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+    letter-spacing: -0.015rem;
+}
+.growth-section-2{
+    padding: 6.25rem 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.growth-text-3{
+    color: #1B1B1B;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 2.125rem; /* 141.667% */
+    letter-spacing: -0.0225rem;
+}
+
+.growth-text-4{
+    color: #1B1B1B;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+    letter-spacing: -0.015rem;
+}
+
+.growth-section-3{
+    padding: 6.25rem 0;
+    background: #DFFEFF;
+}
+
+.text-105{
+    max-width: 37rem;
+    color: #1B1B1B;
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 2.25rem */
+}
+
+.pursue-bg-img-3{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 1.5rem;
+    height: 27rem;
+}
+
+@media (min-width: 992px) {
+    .pursue-bg-img-3 {
+        height: 27rem;
+    }
+}
+
+
+
+
+/*FOOTER************/
+
+.card.footer-card{
+    margin: 6.25rem 0;
+    padding: clamp(1.5rem, 5vw, 4rem) clamp(1.5rem, 10vw, 6.25rem);
+    border-radius: 3.5rem;
+    background: #DFFFE8;
+    max-width: 88rem;
+    border: none;
+}
+
+.logo-green-footer {
+    width: 6rem;
+    height: 3rem;
+}
+
+.footer-text-1{
+    color: #1B1B1B;
+    font-family: "Manrope";
+    font-size: 0.94531rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 158.678% */
+    max-width: 17rem;
+    margin-top: 1.5rem;
+}
+.social-media-footer a{
+    text-decoration: none;
+}
+
+.footer-heading{
+    color: #001010;
+    font-family: "Manrope";
+    font-size: 1.10744rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.75rem; /* 158.025% */
+}
+.footer-links-div{
+    margin-top: 1.5rem;
+    display: flex;
+    padding: 0.25rem 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+.footer-links{
+    text-decoration: none;
+    color: #1B1B1B;
+    font-family: "Manrope";
+    font-size: 0.96875rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5rem; /* 154.839% */
+}
+
+.border-card{
+    display: flex;
+    padding: 2rem 0.01813rem 0 0;
+    justify-content: space-between;;
+    align-items: center;
+    align-self: stretch;
+    border-top: 1px solid #0A7479;
+    margin-top: 5rem;
+}
+
+.footer-ai-venture{
+    color: #1B1B1B;
+    font-family: Manrope;
+    font-size: 0.84769rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem; /* 147.465% */
+}
+.footer-ai-venture a,
+.footer-ai-venture a:hover{
+    color: #1B1B1B;
+    text-decoration: none;
+}
+
+.footer-sub-links{
+    color: #1B1B1B;
+    font-family: Manrope;
+    font-size: 0.86131rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem; /* 145.125% */
+    text-decoration: none;
+}
+
+.footer-sub-links-container {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.ryzen-footer{
+    color: #1B1B1B;
+    font-family: "Manrope";
+    font-size: 0.84769rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.25rem; /* 147.465% */
+}
+
+.ryzen-footer a,
+.ryzen-footer a:hover{
+    color: #1B1B1B;
+    text-decoration: none;
+}
+
+
+
+
+/**scroll top**/
+#myBtn {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px; /* Use right or left as preferred */
+  width: 60px;
+  height: 60px;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#myBtn:hover {
+  background-color: #0A7479;
+  color: #ffffff;
+}
+
+#myBtn i {
+  font-size: 28px;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+  pointer-events: none; /* ensures icon doesn’t interfere with button click */
+}
+

@@ -1,0 +1,252 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}What We Do | AI Venture Catalyst{% endblock %}
+
+    {% block content %}
+
+    <section class="other-header">
+
+        <div class="">
+            <div class="card header-other-card mx-auto">
+
+              <div class="header-bg-img" style="background-image: url('{% static 'images/whatWeDo.webp' %}');"></div>
+
+              <div class="gradient-overlay-07"></div>
+
+              <div class="card-img-overlay">
+                  <div class="container">
+                    <button type="button" class="btn liquid-btn mx-auto">The Services Model That Got You Here, Won't Survive AI</button>
+                    <h1 class="hero-title-2 mx-auto">Hands-on AI Business Transformation led by Veteran Private Equity Operating Partners</h1>
+                    <p class="hero-subtitle-2 mx-auto">
+                        We build independent, investor-ready businesses from your internal specialized IP, guided by decades of operator experience
+                        and a transformation approach to generating outsized value.
+                    </p>
+                  </div>
+              </div>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="before-you-section-1">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-2 g-5">
+                <div class="col-md-7">
+                    <div class="card h-100 border-0 d-flex justify-content-center">
+                        <h2 class="before-text-1">Before You Initiate a Capital Raise – Contact Us</h2>
+                        <p class="before-text-2">
+                            Did you know that only 35 - 40% of companies that hire investment bankers for a growth capital raise end up securing institutional funding?
+                        </p>
+                        <p class="before-text-3">
+                            Too often firms seek help too late, when fundamental gaps can no longer be fixed and valuation upside is capped.
+                            AIVC was built to change all that.  By engaging us as the essential FIRST step, we help you BUILD VALUE FIRST—transforming
+                            your business ahead of fundraising so you approach investors with a robust venture not just a pitch deck) poised to commend a premium valuation.
+                        </p>
+                        <a href="#" class="btn btn-dark">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="card h-100 border-0">
+                        <div class="before-bg-img" style="background-image: url('{% static 'images/image101.webp' %}');"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="before-you-section-2">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-2 g-5">
+                <div class="col-md-5">
+                    <div class="card h-100 border-0 bg-transparent">
+                        <div class="before-bg-img" style="background-image: url('{% static 'images/image102.webp' %}');"></div>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="card h-100 border-0 bg-transparent d-flex justify-content-center">
+                        <h2 class="before-text-1">Before you Attempt AI Business Transformation on your own – Talk to Us</h2>
+                        <p class="before-text-2">
+                            By applying bold 10X thinking, we aim for transformation outcomes rather than incremental improvements.
+                        </p>
+                        <p class="before-text-3">
+                            Did you know that most (95%) of all AI initiatives fail to produce their intended outcomes?  It turns out that
+                            ‘how you AI’ is just as important as ‘what you AI’.  We bring savvy intelligence to this process, along with our proprietary
+                            framework designed to unlock value from either organic or acquisitive means.  Our hands-on value creation doesn’t stop ad advice,
+                            we co-create the outcomes with you, ensuring the realized value is significant and sustainable.
+                        </p>
+                        <a href="#" class="btn btn-dark">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="before-you-section-3">
+        <div class="container">
+            <h1 class="before-text-4">
+                As former Private Equity Operating Partners, we apply proven frameworks to build AI companies that investors fund and scale.
+                Each service below represents a core capability in our transformation methodology.
+            </h1>
+        </div>
+    </div>
+
+    <div class="our-core-service-section">
+        <div class="container">
+            <h2 class="core-text-1">Our Core Services</h2>
+            <p class="core-text-2">We provide end-to-end support to help you transform your AI capabilities into standalone ventures that drive significant valuation uplift to your firm.</p>
+
+            <div class="our-core-subsection">
+
+                {% for service in services %}
+                <div class="card our-core-card">
+                    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
+
+                        <!-- Image -->
+                        <div class="col-md-4">
+                            <div class="card border-0 h-100">
+                                <div class="before-bg-img-101" style="background-image: url('{{ service.image.url }}');"></div>
+                            </div>
+                        </div>
+
+                        <!-- Info -->
+                        <div class="col-md-4">
+                            <div class="card border-0 h-100">
+                                <h3 class="core-text-3">{{ service.title }}</h3>
+                                <p class="core-text-4">{{ service.tagline }}</p>
+                                <p class="core-text-5">{{ service.key_outcome_title }}</p>
+                                <p class="core-text-6">{{ service.key_outcome_description }}</p>
+                            </div>
+                        </div>
+
+                        <!-- Deliverables -->
+                        <div class="col-md-4">
+                            <div class="card border-0 h-100">
+                                <h3 class="core-text-7">What We Deliver:</h3>
+                                <div class="list-section-1">
+                                    <ul class="investor-list">
+                                        {% for item in service.deliverables.all %}
+                                            <li>{{ item.description }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="our-core-service-section">
+        <div class="container">
+            <h2 class="core-text-1">Why the AIVC Approach Works</h2>
+            <p class="core-text-2">We believe in hands-on execution and deep partnership to drive transformative outcomes.</p>
+
+            <div class="philosophy-section-1">
+                <div class="row row-cols-1 row-cols-md-2 g-4">
+                    <div class="col">
+                        <div class="card phil-card-1 h-100">
+                          <div class="card-body p-0">
+                            <h5 class="core-text-8">Build Value First, Raise Capital Second</h5>
+                          </div>
+                            <div class="card-footer p-0 bg-transparent">
+                                <p class="core-text-9">We engage before you initiate capital raises, ensuring your business is truly investor-ready when the time comes.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card phil-card-2 h-100">
+                          <div class="card-body p-0">
+                            <h5 class="core-text-8">Carve-Out <br>Over Bolt-On</h5>
+                          </div>
+                            <div class="card-footer p-0 bg-transparent">
+                                <p class="core-text-9">AI ventures as standalone companies achieve far higher multiples than when kept within services firms.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card phil-card-2 h-100">
+                          <div class="card-body p-0">
+                            <h5 class="core-text-7">Embedded Leadership Over Consulting</h5>
+                          </div>
+                            <div class="card-footer p-0 bg-transparent">
+                                <p class="core-text-9">We provide fractional C-suite leadership, working alongside your team—not as external advisors.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card phil-card-1 h-100">
+                          <div class="card-body p-0">
+                            <h5 class="core-text-7">Investor-Ready<br> from Day One</h5>
+                          </div>
+                            <div class="card-footer p-0 bg-transparent">
+                                <p class="core-text-9">Everything we build meets institutional investor criteria - no last-minute scrambles or fundamental gaps.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="connect-with-us-section" style="background-image: url('{% static 'images/Template9.png' %}');">
+        <div class="container">
+            <div class="row row-cols-1 row-cols-md-2 g-4">
+                <div class="col">
+                    <div class="card-body">
+                        <button class="connect-with-us-btn">❤️ Connect With Us</button>
+                        <h1 class="connect-with-us-title-1">Ready to Transform Your </h1>
+                        <h1 class="connect-with-us-title-2">Services IP Into an AI Empire?</h1>
+                    </div>
+                </div>
+                <div class="col d-flex justify-content-center align-items-center">
+                    <img src="{% static 'images/image_9.png' %}" class="card-img-top ai-logo" alt="...">
+                </div>
+            </div>
+            <p class="connect-with-us-subtitle-1">Three Ways to Get Started:</p>
+            <div class="row row-cols-1 row-cols-md-3 g-2">
+                <div class="col">
+                    <div class="card banner-card-1 h-100">
+                      <h4 class="banner-number">1</h4>
+                      <div class="card-body p-0">
+                          <h4 class="banner-text-1">Schedule a Consultation with us</h4>
+                        <p class="banner-text-2">Complimentary strategic discussion about your AI transformation opportunity.</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card banner-card-1 h-100">
+                      <h4 class="banner-number">2</h4>
+                      <div class="card-body p-0">
+                          <h4 class="banner-text-1">Get Your AIVC Valuation Uplift Evaluation</h4>
+                        <p class="banner-text-2">Preliminary assessment of your hidden AI assets and value creation potential</p>
+                      </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card banner-card-1 h-100">
+                      <h4 class="banner-number">3</h4>
+                      <div class="card-body p-0">
+                          <h4 class="banner-text-1">Initiate Your AIVC Investor Scorecard™</h4>
+                        <p class="banner-text-2">Comprehensive evaluation of your current investor readiness and gap analysis</p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="connect-section-container">
+                <button class="connect-with-our-btn">Connect With Our Team</button>
+<!--                <p class="trusted-by-silicon-text">Trusted by Silicon Valley Veterans!</p>-->
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock %}

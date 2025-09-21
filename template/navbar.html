@@ -1,0 +1,74 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <img class="logo-original" src="{% static 'images/aivc_logo.png' %}" alt="AI Venture Catalyst">
+      <img class="logo-green" src="{% static 'images/aivc_logo_green.png' %}" alt="AI Venture Catalyst" style="position: absolute; top: 0; left: 0;">
+    </a>
+
+    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link nav-header" href="{% url 'aivc_app:about' %}">Who We Are</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-header" href="{% url 'aivc_app:whatWeDo' %}">What We Do</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-header" href="{% url 'aivc_app:exploreGE' %}">Generate Growth Equity</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link nav-header" href="{% url 'aivc_app:pursueSellers' %}">Pursue M&A</a>
+        </li>
+        <li class="nav-item d-lg-none">
+          <a class="btn get-btn-nav" href="#">Schedule a Call</a>
+        </li>
+      </ul>
+    </div>
+    <div class="d-none d-lg-block ms-auto">
+      <button type="button" class="btn get-btn-nav">Schedule a Call</button>
+    </div>
+
+    <div class="d-lg-none ms-auto">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+
+<!--OFFCANVAS-->
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+  <div class="offcanvas-header">
+    <a href="/">
+      <img class="logo-green-off" src="{% static 'images/aivc_logo.png' %}" alt="AI Venture Catalyst">
+    </a>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="navbar-nav offcanvas-navbar-nav justify-content-center flex-grow-1 pe-3">
+      <li class="nav-item offcanvas-navbar-item">
+        <a class="nav-link nav-header" href="{% url 'aivc_app:about' %}">Who We Are</a>
+      </li>
+      <li class="nav-item offcanvas-navbar-item">
+        <a class="nav-link nav-header" href="{% url 'aivc_app:whatWeDo' %}">What We Do</a>
+      </li>
+      <li class="nav-item offcanvas-navbar-item">
+        <a class="nav-link nav-header" href="{% url 'aivc_app:exploreGE' %}">Generate Growth Equity</a>
+      </li>
+      <li class="nav-item offcanvas-navbar-item">
+        <a class="nav-link nav-header" href="{% url 'aivc_app:pursueSellers' %}">Pursue M&A</a>
+      </li>
+      <li class="nav-item offcanvas-navbar-item-btn mt-4">
+        <a class="btn get-btn-nav-off" href="#">Schedule a Call</a>
+      </li>
+    </ul>
+  </div>
+  <div class="card-footer d-flex justify-content-center">
+    <p class="footer-ai-venture text-white">© 2025 AI Venture Catalyst. All rights reserved.</p>
+  </div>
+</div>
